@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f0fdf4;
+    color: #1a1a2e;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ecfdf5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6ee7b7;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #34d399;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg;
+  }
+
+  .eco-gradient {
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #34d399 100%);
+  }
+
+  .eco-gradient-dark {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 30%, #047857 60%, #059669 100%);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-eco-600 hover:bg-eco-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-eco-600/25 hover:shadow-xl hover:shadow-eco-600/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/80 hover:bg-white text-eco-800 font-semibold rounded-xl border-2 border-eco-200 hover:border-eco-400 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/80 border-2 border-eco-200 rounded-xl focus:border-eco-500 focus:ring-4 focus:ring-eco-500/20 outline-none transition-all duration-300 text-gray-800 placeholder-gray-400;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 bg-white/80 border-2 border-eco-200 rounded-xl focus:border-eco-500 focus:ring-4 focus:ring-eco-500/20 outline-none transition-all duration-300 text-gray-800 appearance-none cursor-pointer;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 card-hover;
+  }
+
+  .page-container {
+    @apply min-h-screen pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-eco-900 mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 text-lg mb-8;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-reported {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-review {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-verified {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-forwarded {
+    @apply bg-purple-100 text-purple-800;
+  }
+
+  .badge-closed {
+    @apply bg-gray-100 text-gray-800;
+  }
+}
+
+/* Leaflet map fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
