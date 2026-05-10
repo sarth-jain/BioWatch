@@ -70,6 +70,9 @@ export default function Home() {
                             <Link to="/report" className="btn-primary text-lg px-8 py-4 flex items-center gap-2">
                                 📢 Report an Issue
                             </Link>
+                            <Link to="/high-priority" className="btn-secondary text-lg px-8 py-4 flex items-center gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20">
+                                🔍 Track Report
+                            </Link>
                             <Link to="/map" className="btn-secondary text-lg px-8 py-4 flex items-center gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20">
                                 🗺️ View Map
                             </Link>
@@ -95,6 +98,7 @@ export default function Home() {
                     ))}
                 </div>
             </section>
+
 
             {/* Categories + Weather */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

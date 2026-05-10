@@ -187,144 +187,71 @@ CREATE OR REPLACE TRIGGER on_auth_user_created
   FOR EACH ROW EXECUTE FUNCTION handle_new_user();
 
 -- ============================================
--- SAMPLE BIODIVERSITY DATA (Pune)
+-- SAMPLE BIODIVERSITY DATA (Pune) — 5 Fauna + 5 Flora
 -- Run only in a fresh setup. For existing DBs, use INSERT ... ON CONFLICT DO NOTHING
 -- ============================================
 DELETE FROM biodiversity WHERE true;
 
 INSERT INTO biodiversity (name, scientific_name, type, description, habitat, location, image_url) VALUES
 
--- ── FAUNA ──
+-- ── FAUNA (5) ──
   ('Indian Leopard', 'Panthera pardus fusca', 'fauna',
    'A large spotted cat native to the Indian subcontinent. Sightings are regularly reported near Sinhagad and Bhimashankar. They navigate forest corridors between the Western Ghats and the hills around Pune.',
    'Deciduous forests, rocky scrublands, forested hills',
    'Sinhagad Fort area & Bhimashankar Wildlife Sanctuary, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Indian_Leopard.jpg&width=480'),
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Indian_Leopard.jpg/480px-Indian_Leopard.jpg'),
 
   ('Indian Peafowl', 'Pavo cristatus', 'fauna',
    'The national bird of India. Peacocks are a common and beloved sight at Rajiv Gandhi Zoological Park and across agricultural land on the outskirts of Pune. Males display spectacular plumage during the monsoon breeding season.',
    'Open forests, grasslands, farmland edges',
-   'Rajiv Gandhi Zoological Park (Katraj), Pashan Lake, Lohegaon, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Peacock_Plumage.jpg&width=480'),
-
-  ('Indian Flying Fox', 'Pteropus medius', 'fauna',
-   'One of the largest bats in the world with a wingspan up to 1.5 m. Large roost colonies hang from tall trees near Empress Garden and Osho Ashram area. They are vital pollinators and seed dispersers.',
-   'Urban tree groves, mango orchards, rivers',
-   'Empress Garden & Bund Garden area, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Indian_flying_fox_(Pteropus_medius)_Bhatti_Mines.jpg&width=480'),
+   'Rajiv Gandhi Zoological Park (Katraj), Pashan Lake, Pune',
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Peacock_Plumage.jpg/480px-Peacock_Plumage.jpg'),
 
   ('Indian Giant Squirrel', 'Ratufa indica', 'fauna',
-   'A striking black-and-rust coloured tree squirrel endemic to India. Found in the dense canopy forests of Bhimashankar, a wildlife sanctuary roughly 110 km from Pune. Listed as Vulnerable.',
+   'A striking multi-coloured tree squirrel endemic to India. Found in the dense canopy forests of Bhimashankar, a wildlife sanctuary roughly 110 km from Pune. Listed as Vulnerable by IUCN.',
    'Moist deciduous and semi-evergreen forests',
    'Bhimashankar Wildlife Sanctuary (110 km from Pune)',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ratufa_indica_(Bhadra,_2006).jpg&width=480'),
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Ratufa_indica_%28Bhadra%2C_2006%29.jpg/480px-Ratufa_indica_%28Bhadra%2C_2006%29.jpg'),
 
-  ('Bonnet Macaque', 'Macaca radiata', 'fauna',
-   'A gregarious monkey species widely seen around Parvati Hill, Sinhagad Fort, and Khadakwasla Dam. They are highly adaptable and thrive near human settlements and temple precincts.',
-   'Forests, temple areas, rocky outcrops',
-   'Parvati Hill, Sinhagad Fort, Khadakwasla Dam, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bonnet_macaque_(Macaca_radiata)_Photograph_By_Shantanu_Kuveskar.jpg&width=480'),
+  ('Spotted Deer (Chital)', 'Axis axis', 'fauna',
+   'The most common deer species in India. Herds graze in the grasslands and forest edges near Bhimashankar and are seen at Rajiv Gandhi Zoo in Katraj. Their alarm calls warn other animals of predators.',
+   'Grasslands, forest edges, open woodlands',
+   'Rajiv Gandhi Zoological Park (Katraj), Bhimashankar, Pune',
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Spotted_deer_%28Axis_axis%29_male.jpg/480px-Spotted_deer_%28Axis_axis%29_male.jpg'),
 
-  ('Indian Rock Python', 'Python molurus', 'fauna',
-   'One of India''s largest snakes. It inhabits the rocky, forested hillsides of Sinhagad and has been spotted near the Mutha river banks. A Schedule I protected species under the Wildlife Protection Act.',
-   'Rocky hills, riverbanks, forests',
-   'Sinhagad Valley, Mutha River banks, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Indian_Rock_Python.jpg&width=480'),
+  ('Indian Grey Hornbill', 'Ocyceros birostris', 'fauna',
+   'A medium-sized hornbill commonly heard calling in Pune city — one of the few hornbill species that has adapted to urban environments. Nests in large trees with natural hollows.',
+   'Urban tree canopies, deciduous forests, gardens',
+   'Pune University campus, Law College Road, Koregaon Park, Pune',
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Indian_Grey_Hornbill_%28Ocyceros_birostris%29_in_Hyderabad_W_IMG_7468.jpg/480px-Indian_Grey_Hornbill_%28Ocyceros_birostris%29_in_Hyderabad_W_IMG_7468.jpg'),
 
-  ('Painted Stork', 'Mycteria leucocephala', 'fauna',
-   'A large wading bird easily recognised by its vivid pink and yellow bill and white-and-black wings. Pashan Lake and Bhigwan (Bhimashankar road corridor) are key wintering grounds for hundreds of individuals.',
-   'Shallow wetlands, lakes, paddy fields',
-   'Pashan Lake, Bhigwan Wetlands (~100 km from Pune)',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Painted_Stork_(Mycteria_leucocephala)_at_Bharatpur_I_IMG_5673.jpg&width=480'),
-
-  ('Mugger Crocodile', 'Crocodylus palustris', 'fauna',
-   'A medium-sized crocodile found basking on the banks of the Mutha and Bhima rivers near Pune. Khadakwasla reservoir houses a healthy population. A Schedule I protected species.',
-   'Rivers, reservoirs, freshwater wetlands',
-   'Khadakwasla Reservoir & Mutha River, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Crocodylus_palustris_1.jpg&width=480'),
-
-  ('Common Indian Monitor', 'Varanus bengalensis', 'fauna',
-   'A large monitor lizard frequently seen around Sinhagad, Vetal Tekdi, and along the rocky outcrops of the Sahyadri hills. They are important scavengers in the ecosystem.',
-   'Scrubland, rocky areas, near water bodies',
-   'Vetal Tekdi (Vetal Hill), Sinhagad area, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Varanus_bengalensis_2.jpg&width=480'),
-
-  ('Flame-throated Bulbul', 'Rubigula gularis', 'fauna',
-   'A vibrant bird endemic to the Western Ghats with a striking orange-red throat patch. Found in the forested ghats accessible from Pune via Tamhini and Mulshi.',
-   'Evergreen and moist deciduous forests of Western Ghats',
-   'Tamhini Ghat, Mulshi Forests (~50 km from Pune)',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Pycnonotus_gularis_-_Goa.jpg&width=480'),
-
-
--- ── FLORA ──
+-- ── FLORA (5) ──
   ('Banyan Tree', 'Ficus benghalensis', 'flora',
    'India''s national tree. Massive specimen banyan trees line the avenues of Empress Garden and are found throughout Pune''s heritage precincts. Their aerial roots form new trunks, creating micro-ecosystems.',
    'Tropical forests, heritage gardens, roadside avenues',
    'Empress Garden, Deccan Gymkhana, Aga Khan Palace, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ficus_benghalensis_-_Indian_Botanic_Garden_-_Howrah_2012-01-29_1692.JPG&width=480'),
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ficus_benghalensis_-_Indian_Botanic_Garden_-_Howrah_2012-01-29_1692.JPG/480px-Ficus_benghalensis_-_Indian_Botanic_Garden_-_Howrah_2012-01-29_1692.JPG'),
 
   ('Neem Tree', 'Azadirachta indica', 'flora',
-   'A fast-growing tree prized for its medicinal and insecticidal properties. Widely planted along Pune''s roads and in residential areas. Almost every neighbourhood in Pune has neem trees providing dense summer shade.',
+   'A fast-growing tree prized for its medicinal and insecticidal properties. Widely planted along Pune''s roads and in residential areas. Almost every neighbourhood has neem trees providing dense summer shade.',
    'Tropical dry forests, urban streets, backyards',
    'Throughout Pune city — Shivajinagar, Kothrud, Aundh, Hadapsar',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Neem_(Azadirachta_indica)_in_Hyderabad_W_IMG_6976.jpg&width=480'),
-
-  ('Peepal Tree', 'Ficus religiosa', 'flora',
-   'The sacred fig tree, revered in Hindu, Buddhist, and Jain traditions. Ancient specimens stand at Parvati Temple, near Kasba Ganpati, and across the Peth areas of old Pune.',
-   'Temple precincts, roadsides, riverbanks',
-   'Parvati Hill, Kasba Peth, Shaniwarwada surroundings, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ficus_religiosa_Bo.jpg&width=480'),
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Neem_%28Azadirachta_indica%29_in_Hyderabad_W_IMG_6976.jpg/480px-Neem_%28Azadirachta_indica%29_in_Hyderabad_W_IMG_6976.jpg'),
 
   ('Gulmohar', 'Delonix regia', 'flora',
    'The Flame Tree explodes in scarlet-orange blossoms each summer (April–June), transforming Pune''s avenues into fiery corridors. Senapati Bapat Road and University Road are especially famous for their gulmohar canopy.',
    'Tropical urban boulevards, parks',
    'Senapati Bapat Road, Pune University Campus, Deccan, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Gulmohar_(Delonix_regia)_flowers_W_IMG_6879.jpg&width=480'),
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Gulmohar_%28Delonix_regia%29_flowers_W_IMG_6879.jpg/480px-Gulmohar_%28Delonix_regia%29_flowers_W_IMG_6879.jpg'),
 
-  ('Karvi (Strobilanthes)', 'Strobilanthes callosa', 'flora',
-   'A shrub found in the Sahyadri hills near Pune that mass-blooms only once every 7 years, covering hillsides in violet-blue flowers. Best observed at Sinhagad Valley and Mulshi during its rare bloom.',
-   'Sahyadri hillside thickets, rocky slopes',
-   'Sinhagad Valley, Mulshi & Tamhini Ghat hillsides, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Strobilanthes_callosa_at_Munnar.jpg&width=480'),
-
-  ('Arjuna Tree', 'Terminalia arjuna', 'flora',
-   'A large riverine tree with striking buttressed roots, found along the Mula-Mutha riverbanks. Used extensively in Ayurvedic medicine for heart ailments. Old specimens line the riverfront near Bund Garden.',
-   'Riverbanks, floodplains',
-   'Mula-Mutha Riverfront, Bund Garden Park, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Terminalia_arjuna_at_Surajkund_Faridabad_2013.jpg&width=480'),
-
-  ('Indian Tulip', 'Thespesia populnea', 'flora',
-   'A coastal and inland tree often planted along Pune''s lakes and Khadakwasla reservoir shores. Its hibiscus-like yellow flowers are an important nectar source for sunbirds and butterflies.',
-   'Lakeshores, waterways, coastal margins',
-   'Khadakwasla Reservoir shores, Mula River banks, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Thespesia_populnea_flowers.jpg&width=480'),
-
-  ('Ashoka Tree', 'Saraca asoca', 'flora',
-   'A beautiful flowering tree with dense clusters of bright orange-red flowers. Planted extensively in the grounds of Aga Khan Palace, Peshwa-era wadas (mansions), and temple gardens across Pune.',
-   'Temple gardens, heritage properties, moist valleys',
-   'Aga Khan Palace, Shaniwarwada gardens, Parvati Hill, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saraca_asoca_flowers.jpg&width=480'),
-
-  ('Bamboo (Male Bamboo)', 'Dendrocalamus strictus', 'flora',
-   'Dense bamboo groves form important wildlife corridors in the Sinhagad and Tamhini forested valleys. Bamboo is also a critical food source for Indian porcupines and several bird species in the region.',
-   'Moist forested valleys, hillside ravines',
-   'Tamhini Ghat, Sinhagad Valley, Mulshi forest patches, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Dendrocalamus_strictus_-_Bangalore.jpg&width=480'),
+  ('Peepal Tree', 'Ficus religiosa', 'flora',
+   'The sacred fig tree, revered in Hindu, Buddhist, and Jain traditions. Ancient specimens stand at Parvati Temple, near Kasba Ganpati, and across the Peth areas of old Pune.',
+   'Temple precincts, roadsides, riverbanks',
+   'Parvati Hill, Kasba Peth, Shaniwarwada surroundings, Pune',
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ficus_religiosa_Bo.jpg/480px-Ficus_religiosa_Bo.jpg'),
 
   ('Jacaranda', 'Jacaranda mimosifolia', 'flora',
-   'Originally from South America, jacaranda trees were introduced by the British and now bloom spectacularly in Pune every February–March, carpeting roads in purple blossoms. Camp and Koregaon Park are famous for them.',
+   'Originally from South America, jacaranda trees bloom spectacularly in Pune every February–March, carpeting roads in purple blossoms. Camp and Koregaon Park are famous for them.',
    'Urban avenues, bungalow gardens',
    'Koregaon Park, Camp Area (MG Road), Boat Club Road, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jacaranda_mimosifolia_in_flower.jpg&width=480'),
-
-  ('Brahma Kamal (Night lotus)', 'Saussurea obvallata', 'flora',
-   'India''s rare and sacred night-blooming flower, found at higher altitudes of the Sahyadri. Observed near Harishchandragad and Kalsubai peak (accessible from Pune). Blooms only once a year at night.',
-   'High-altitude rocky slopes of Sahyadri (above 1200 m)',
-   'Harishchandragad & Kalsubai, Ahmednagar (3–4 hrs from Pune)',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Saussurea_obvallata_var._obvallata.jpg&width=480'),
-
-  ('Rain Tree (Monkey Pod)', 'Samanea saman', 'flora',
-   'Enormous spreading rain trees create iconic green canopies across Pune''s older roads. The trees fold their leaves before rain — giving them their common name. Magnificent specimens line Fergusson College Road.',
-   'Urban avenues, park boundaries',
-   'Fergusson College Road, Deccan Gymkhana area, Pune',
-   'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Samanea_saman_pod.jpg&width=480');
+   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jacaranda_mimosifolia_at_Pune.JPG/480px-Jacaranda_mimosifolia_at_Pune.JPG');

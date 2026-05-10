@@ -42,6 +42,149 @@ function ModalImage({ src, name, type }) {
     );
 }
 
+// Zoo info section component
+function ZooInfoSection() {
+    const [expanded, setExpanded] = useState(false);
+
+    const zooAnimals = [
+        { name: 'Royal Bengal Tiger', icon: '🐅' },
+        { name: 'Indian Leopard', icon: '🐆' },
+        { name: 'Sloth Bear', icon: '🐻' },
+        { name: 'Spotted Deer', icon: '🦌' },
+        { name: 'Indian Peafowl', icon: '🦚' },
+        { name: 'Mugger Crocodile', icon: '🐊' },
+        { name: 'Indian Python', icon: '🐍' },
+        { name: 'Various Birds', icon: '🦜' },
+    ];
+
+    return (
+        <div className="mt-12 glass-card overflow-hidden">
+            {/* Zoo Header Banner */}
+            <div className="relative bg-gradient-to-r from-eco-700 via-eco-600 to-emerald-500 p-6 sm:p-8">
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-2 left-8 text-6xl">🌳</div>
+                    <div className="absolute bottom-2 right-8 text-6xl">🦁</div>
+                    <div className="absolute top-4 right-1/3 text-4xl">🦋</div>
+                </div>
+                <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-2">
+                        <span className="text-3xl">🏛️</span>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white">Rajiv Gandhi Zoological Park</h2>
+                    </div>
+                    <p className="text-eco-100 text-lg">Katraj, Pune — A Haven for Wildlife Conservation</p>
+                </div>
+            </div>
+
+            {/* Zoo Content */}
+            <div className="p-6 sm:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* About Section */}
+                    <div>
+                        <h3 className="font-bold text-eco-900 text-lg mb-3 flex items-center gap-2">
+                            <span>📖</span> About the Zoo
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                            Rajiv Gandhi Zoological Park, commonly known as <strong>Katraj Zoo</strong>, is located in the 
+                            Katraj area of Pune, Maharashtra. Established in 1999 and spread over <strong>130 acres</strong>, 
+                            it is one of the most visited zoos in western India. The zoo was relocated from its original 
+                            location at Peshwe Park in the heart of Pune to this larger, greener site at Katraj.
+                        </p>
+                        <p className="text-gray-700 leading-relaxed">
+                            The zoo is home to a wide variety of animals, birds, and reptiles, and also features a 
+                            <strong> Snake Park</strong> and an <strong>orphaned animal rescue centre</strong>. 
+                            It plays a vital role in wildlife conservation, breeding programmes, and environmental education 
+                            for the citizens of Pune.
+                        </p>
+                    </div>
+
+                    {/* Quick Info */}
+                    <div className="space-y-3">
+                        <h3 className="font-bold text-eco-900 text-lg mb-3 flex items-center gap-2">
+                            <span>ℹ️</span> Visitor Information
+                        </h3>
+                        <div className="bg-eco-50 border border-eco-100 rounded-xl p-4 space-y-3">
+                            <div className="flex items-start gap-3">
+                                <span className="text-lg mt-0.5">📍</span>
+                                <div>
+                                    <p className="text-xs font-semibold text-eco-700 uppercase tracking-wide">Location</p>
+                                    <p className="text-sm text-gray-700">Katraj, Satara Road, Pune 411046</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <span className="text-lg mt-0.5">🕐</span>
+                                <div>
+                                    <p className="text-xs font-semibold text-eco-700 uppercase tracking-wide">Timings</p>
+                                    <p className="text-sm text-gray-700">9:30 AM – 6:00 PM (Closed on Wednesdays)</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <span className="text-lg mt-0.5">🎟️</span>
+                                <div>
+                                    <p className="text-xs font-semibold text-eco-700 uppercase tracking-wide">Entry Fee</p>
+                                    <p className="text-sm text-gray-700">₹30 for Adults, ₹10 for Children (approx.)</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <span className="text-lg mt-0.5">📐</span>
+                                <div>
+                                    <p className="text-xs font-semibold text-eco-700 uppercase tracking-wide">Area</p>
+                                    <p className="text-sm text-gray-700">130 acres of lush green habitat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Key Animals */}
+                <div className="mt-6">
+                    <h3 className="font-bold text-eco-900 text-lg mb-3 flex items-center gap-2">
+                        <span>🐾</span> Key Animals at the Zoo
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {zooAnimals.map((animal, i) => (
+                            <div key={i} className="bg-gradient-to-br from-white to-eco-50 border border-eco-100 rounded-xl p-3 text-center hover:shadow-md transition-shadow duration-200">
+                                <span className="text-2xl block mb-1">{animal.icon}</span>
+                                <p className="text-sm font-medium text-eco-800">{animal.name}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Highlights */}
+                <div className="mt-6">
+                    <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="flex items-center gap-2 text-eco-700 font-semibold hover:text-eco-900 transition-colors"
+                    >
+                        <span>{expanded ? '▼' : '▶'}</span>
+                        <span>Special Attractions & Highlights</span>
+                    </button>
+                    {expanded && (
+                        <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in">
+                            <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
+                                <h4 className="font-semibold text-amber-800 mb-1">🐍 Snake Park</h4>
+                                <p className="text-sm text-gray-700">Houses various species of Indian snakes including King Cobra, Indian Cobra, Russell's Viper, and Python with educational displays.</p>
+                            </div>
+                            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+                                <h4 className="font-semibold text-blue-800 mb-1">🦋 Butterfly Garden</h4>
+                                <p className="text-sm text-gray-700">A dedicated butterfly enclosure with native flowering plants that attract dozens of butterfly species throughout the year.</p>
+                            </div>
+                            <div className="bg-purple-50 border border-purple-100 rounded-xl p-4">
+                                <h4 className="font-semibold text-purple-800 mb-1">🌊 Katraj Lake</h4>
+                                <p className="text-sm text-gray-700">The adjacent Katraj Lake adds scenic beauty and supports migratory bird watching during winter months.</p>
+                            </div>
+                            <div className="bg-green-50 border border-green-100 rounded-xl p-4">
+                                <h4 className="font-semibold text-green-800 mb-1">🏥 Animal Rescue Centre</h4>
+                                <p className="text-sm text-gray-700">Operates a rescue and rehabilitation centre for orphaned, injured, and confiscated wild animals from across Maharashtra.</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function Biodiversity() {
     const [items, setItems] = useState([]);
     const [filtered, setFiltered] = useState([]);
@@ -194,6 +337,9 @@ export default function Biodiversity() {
                     <p className="text-sm text-gray-500">Fauna</p>
                 </div>
             </div>
+
+            {/* Rajiv Gandhi Zoo Section */}
+            <ZooInfoSection />
 
             {/* Detail Modal */}
             {selected && (

@@ -6,24 +6,22 @@ const STATIC_OFFICIALS = [
   { id: 's1', name: 'Pune Forest Division', designation: 'Chief Conservator of Forests — Pune', department: 'Maharashtra Forest Department', phone: '020-26122000', email: 'ccf.pune@mahaforest.gov.in', office_address: 'Aranya Bhavan, S P College Road, Shivajinagar, Pune - 411 005', zone: 'Pune Division' },
   { id: 's2', name: 'Wildlife SOS — 24×7 Helpline', designation: 'Rescue & Rapid Response', department: 'Wildlife SOS', phone: '1926', email: 'info@wildlifesos.org', office_address: 'Wildlife SOS India, Noida', zone: 'National' },
   { id: 's3', name: 'Junnar Forest Division', designation: 'DCF — Leopard Mitigation Cell', department: 'Maharashtra Forest Department', phone: '02132-225400', email: 'dcf.junnar@mahaforest.gov.in', office_address: 'Junnar Forest Division, Junnar, Pune District', zone: 'Junnar / Shirur Zone' },
-  { id: 's4', name: 'WCCB Western Region', designation: 'Regional Deputy Director', department: 'Wildlife Crime Control Bureau', phone: '022-22027108', email: 'wccbmumbai@gov.in', office_address: 'CGO Complex, Churchgate, Mumbai - 400 020', zone: 'Maharashtra / West India' },
   { id: 's5', name: 'MPCB — Pune Office', designation: 'Regional Officer', department: 'Maharashtra Pollution Control Board', phone: '020-26058424', email: 'rp.pune@mpcb.gov.in', office_address: 'MPCB Regional Office, Shivajinagar, Pune - 411 005', zone: 'Pune' },
-  { id: 's6', name: 'NGT Western Zone Bench', designation: 'Registrar, Western Zone', department: 'National Green Tribunal', phone: '020-25512626', email: 'ngtpune@nic.in', office_address: 'Phule Vastu Sangrahalya, Shivajinagar, Pune - 411 005', zone: 'Pune / Western India' },
   { id: 's7', name: 'PMC Tree Authority', designation: 'Tree Officer — Permits & Complaints', department: 'PMC Tree Authority', phone: '020-25501100', email: 'tree@punecorporation.org', office_address: 'PMC Main Building, Shivajinagar, Pune - 411 005', zone: 'Pune City' },
 ];
 
 // ── Department configuration (icon + colour per department)
 const DEPT_CONFIG = {
-  'Maharashtra Forest Department':    { icon: '🌲', color: 'bg-green-100 text-green-800 border-green-200',   accent: 'border-l-green-600' },
-  'Wildlife SOS':                     { icon: '🐆', color: 'bg-orange-100 text-orange-800 border-orange-200', accent: 'border-l-orange-500' },
-  'Wildlife Crime Control Bureau':    { icon: '🔍', color: 'bg-red-100 text-red-800 border-red-200',          accent: 'border-l-red-500' },
-  'Maharashtra Pollution Control Board': { icon: '🏭', color: 'bg-blue-100 text-blue-800 border-blue-200',   accent: 'border-l-blue-500' },
-  'National Green Tribunal':          { icon: '⚖️', color: 'bg-purple-100 text-purple-800 border-purple-200', accent: 'border-l-purple-500' },
+  'Maharashtra Forest Department': { icon: '🌲', color: 'bg-green-100 text-green-800 border-green-200', accent: 'border-l-green-600' },
+  'Wildlife SOS': { icon: '🐆', color: 'bg-orange-100 text-orange-800 border-orange-200', accent: 'border-l-orange-500' },
+  'Wildlife Crime Control Bureau': { icon: '🔍', color: 'bg-red-100 text-red-800 border-red-200', accent: 'border-l-red-500' },
+  'Maharashtra Pollution Control Board': { icon: '🏭', color: 'bg-blue-100 text-blue-800 border-blue-200', accent: 'border-l-blue-500' },
+  'National Green Tribunal': { icon: '⚖️', color: 'bg-purple-100 text-purple-800 border-purple-200', accent: 'border-l-purple-500' },
   'Ministry of Environment (MoEFCC)': { icon: '🇮🇳', color: 'bg-indigo-100 text-indigo-800 border-indigo-200', accent: 'border-l-indigo-500' },
   'Bombay Natural History Society (BNHS)': { icon: '🦋', color: 'bg-teal-100 text-teal-800 border-teal-200', accent: 'border-l-teal-500' },
-  'PMC Tree Authority':               { icon: '🌳', color: 'bg-lime-100 text-lime-800 border-lime-200',       accent: 'border-l-lime-500' },
-  'PMC Environment Department':       { icon: '♻️', color: 'bg-emerald-100 text-emerald-800 border-emerald-200', accent: 'border-l-emerald-500' },
-  'PMC General Helpline':             { icon: '📞', color: 'bg-gray-100 text-gray-700 border-gray-200',       accent: 'border-l-gray-400' },
+  'PMC Tree Authority': { icon: '🌳', color: 'bg-lime-100 text-lime-800 border-lime-200', accent: 'border-l-lime-500' },
+  'PMC Environment Department': { icon: '♻️', color: 'bg-emerald-100 text-emerald-800 border-emerald-200', accent: 'border-l-emerald-500' },
+  'PMC General Helpline': { icon: '📞', color: 'bg-gray-100 text-gray-700 border-gray-200', accent: 'border-l-gray-400' },
 };
 const DEFAULT_DEPT = { icon: '🏛️', color: 'bg-gray-100 text-gray-700 border-gray-200', accent: 'border-l-gray-400' };
 
@@ -32,16 +30,14 @@ const DEPT_GROUPS = [
   { id: 'All', label: 'All Departments', icon: '📋' },
   { id: 'Maharashtra Forest Department', label: 'Forest Dept', icon: '🌲' },
   { id: 'Wildlife SOS', label: 'Wildlife SOS', icon: '🐆' },
-  { id: 'Wildlife Crime Control Bureau', label: 'WCCB', icon: '🔍' },
   { id: 'Maharashtra Pollution Control Board', label: 'MPCB', icon: '🏭' },
-  { id: 'National Green Tribunal', label: 'NGT', icon: '⚖️' },
   { id: 'PMC', label: 'PMC (Reference)', icon: '🏛️' }, // grouped — any dept starting with "PMC"
 ];
 
 const CATEGORY_CONFIG = {
-  tree:        { icon: '🌳', label: 'Tree Protection', color: 'bg-green-100 text-green-800 border-green-200',   accent: 'border-l-green-500' },
-  wildlife:    { icon: '🐆', label: 'Wildlife',         color: 'bg-orange-100 text-orange-800 border-orange-200', accent: 'border-l-orange-500' },
-  environment: { icon: '♻️', label: 'Environment',      color: 'bg-blue-100 text-blue-800 border-blue-200',     accent: 'border-l-blue-500' },
+  tree: { icon: '🌳', label: 'Tree Protection', color: 'bg-green-100 text-green-800 border-green-200', accent: 'border-l-green-500' },
+  wildlife: { icon: '🐆', label: 'Wildlife', color: 'bg-orange-100 text-orange-800 border-orange-200', accent: 'border-l-orange-500' },
+  environment: { icon: '♻️', label: 'Environment', color: 'bg-blue-100 text-blue-800 border-blue-200', accent: 'border-l-blue-500' },
 };
 
 const PMC_CIRCULARS = [
@@ -174,8 +170,8 @@ export default function OfficialResources() {
   const filteredOfficials = officials.filter(o => {
     const matchesDept =
       deptFilter === 'All' ? true :
-      deptFilter === 'PMC' ? o.department.startsWith('PMC') :
-      o.department === deptFilter;
+        deptFilter === 'PMC' ? o.department.startsWith('PMC') :
+          o.department === deptFilter;
     const q = searchOfficials.toLowerCase().trim();
     const matchesSearch = !q ||
       o.name.toLowerCase().includes(q) ||
@@ -191,8 +187,9 @@ export default function OfficialResources() {
 
   const TABS = [
     { id: 'officials', label: 'Contacts', icon: '👤' },
+    { id: 'tree_authority', label: 'Tree Authority', icon: '🌳' },
     { id: 'circulars', label: 'Official Circulars', icon: '📄' },
-    { id: 'legal',     label: 'Legal Guidelines', icon: '⚖️' },
+    { id: 'legal', label: 'Legal Guidelines', icon: '⚖️' },
   ];
 
   return (
@@ -205,7 +202,7 @@ export default function OfficialResources() {
           <div>
             <h1 className="section-title mb-0">Official Resources</h1>
             <p className="text-sm text-eco-600 font-medium mt-0.5">
-              Forest Dept · Wildlife SOS · WCCB · MPCB · NGT · MoEFCC · PMC
+              Forest Dept · Wildlife SOS · MPCB · MoEFCC · PMC
             </p>
           </div>
         </div>
@@ -221,7 +218,6 @@ export default function OfficialResources() {
           {[
             { label: '🐆 Wildlife SOS', number: '1926' },
             { label: '🌲 Forest Helpline', number: '1800-209-4300' },
-            { label: '🚨 WCCB Hotline', number: '1800-102-7219' },
             { label: '☎️ PMC Control Room', number: '1800-103-0222' },
           ].map(h => (
             <a key={h.number} href={`tel:${h.number}`}
@@ -238,11 +234,10 @@ export default function OfficialResources() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-t-xl border-b-2 transition-all -mb-px ${
-              activeTab === tab.id
+            className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-t-xl border-b-2 transition-all -mb-px ${activeTab === tab.id
                 ? 'border-b-eco-600 text-eco-700 bg-eco-50'
                 : 'border-b-transparent text-gray-500 hover:text-eco-700 hover:bg-eco-50/50'
-            }`}
+              }`}
           >
             {tab.icon} {tab.label}
           </button>
@@ -269,11 +264,10 @@ export default function OfficialResources() {
                 <button
                   key={g.id}
                   onClick={() => setDeptFilter(g.id)}
-                  className={`text-xs px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap flex items-center gap-1 ${
-                    deptFilter === g.id
+                  className={`text-xs px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap flex items-center gap-1 ${deptFilter === g.id
                       ? 'bg-eco-600 text-white shadow-sm'
                       : 'bg-eco-50 text-eco-700 hover:bg-eco-100 border border-eco-200'
-                  }`}
+                    }`}
                 >
                   {g.icon} {g.label}
                 </button>
@@ -312,6 +306,333 @@ export default function OfficialResources() {
           {/* Note about PMC contacts */}
           <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800">
             <span className="font-bold">ℹ️ Note:</span> PMC contacts are listed for reference only, as they handle tree permissions and civic complaints within Pune city limits. For wildlife or pollution emergencies, always contact the relevant state/central departments listed above.
+          </div>
+        </div>
+      )}
+
+      {/* ════════════════════════════════════════════════════════════
+          TAB — Tree Authority Members
+      ════════════════════════════════════════════════════════════ */}
+      {activeTab === 'tree_authority' && (
+        <div className="animate-fade-in space-y-6">
+
+          {/* Hero Header */}
+          <div className="relative bg-gradient-to-r from-[#8B1A2B] via-[#A0243D] to-[#8B1A2B] rounded-2xl p-6 sm:p-8 text-white shadow-lg overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-2 left-8 text-6xl">🌳</div>
+              <div className="absolute bottom-2 right-8 text-6xl">🏛️</div>
+            </div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-3xl">🌳</span>
+                <h2 className="text-2xl sm:text-3xl font-bold">PMC Tree Authority</h2>
+              </div>
+              <p className="text-white/80 text-sm sm:text-base">
+                Pune Municipal Corporation — Tree Authority Members & Expert Committee
+              </p>
+              <a
+                href="https://www.pmc.gov.in/en/tree-authority-members"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-3 text-xs bg-white/20 hover:bg-white/30 border border-white/30 rounded-lg px-3 py-1.5 transition-all"
+              >
+                🔗 View on PMC Portal →
+              </a>
+            </div>
+          </div>
+
+          {/* Authority Members Table */}
+          <div className="glass-card overflow-hidden">
+            <div className="bg-eco-50 px-5 py-3 border-b border-eco-200">
+              <h3 className="font-bold text-eco-900 flex items-center gap-2">
+                <span>🏛️</span> Tree Authority Members
+              </h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#8B1A2B] text-white text-left">
+                    <th className="px-4 py-3 font-semibold w-16">Sr. No</th>
+                    <th className="px-4 py-3 font-semibold">Name</th>
+                    <th className="px-4 py-3 font-semibold">Designation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-eco-100 hover:bg-eco-50 transition-colors">
+                    <td className="px-4 py-3 font-medium text-eco-700">1</td>
+                    <td className="px-4 py-3">
+                      <p className="font-semibold text-eco-900">Hon. Shri. Naval Kishore Ram</p>
+                      <p className="text-xs text-gray-500">Municipal Commissioner</p>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">President Tree Authority</td>
+                  </tr>
+                  <tr className="border-b border-eco-100 hover:bg-eco-50 transition-colors">
+                    <td className="px-4 py-3 font-medium text-eco-700">2</td>
+                    <td className="px-4 py-3">
+                      <p className="font-semibold text-eco-900">Hon. Dr. Ashok Ghorpade</p>
+                      <p className="text-xs text-gray-500">Joint Municipal Commissioner and Chief Garden Superintendent</p>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">Member Secretary, Tree Authority</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Expert Committee Table */}
+          <div className="glass-card overflow-hidden">
+            <div className="bg-eco-50 px-5 py-3 border-b border-eco-200">
+              <h3 className="font-bold text-eco-900 flex items-center gap-2">
+                <span>👨‍🔬</span> Members of the Expert Committee
+              </h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#8B1A2B] text-white text-left">
+                    <th className="px-4 py-3 font-semibold w-16">No.</th>
+                    <th className="px-4 py-3 font-semibold">Members of the Expert Committee</th>
+                    <th className="px-4 py-3 font-semibold">Contact Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { no: 1, name: 'Dr. Vinodkumar Mohan', contact: '9423968204' },
+                    { no: 2, name: 'Shri. Vijay Mehta', contact: '7350022999' },
+                    { no: 3, name: 'Shri. Digambar Mokat', contact: '9420907098' },
+                    { no: 4, name: 'Dr. Sandeep Jadhav', contact: '9665043400' },
+                    { no: 5, name: 'Dr. K. N. Dhumal', contact: '9604393523' },
+                  ].map((member) => (
+                    <tr key={member.no} className="border-b border-eco-100 hover:bg-eco-50 transition-colors">
+                      <td className="px-4 py-3 font-medium text-eco-700">{member.no}.</td>
+                      <td className="px-4 py-3 font-medium text-eco-900">{member.name}</td>
+                      <td className="px-4 py-3">
+                        <a
+                          href={`tel:${member.contact}`}
+                          className="inline-flex items-center gap-1.5 text-[#8B1A2B] hover:text-[#6B1323] font-mono font-semibold hover:underline transition-colors"
+                        >
+                          📞 {member.contact}
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Ward-wise Tree Authority Officers */}
+          <div className="glass-card overflow-hidden">
+            <div className="bg-eco-50 px-5 py-3 border-b border-eco-200 flex items-center justify-between">
+              <h3 className="font-bold text-eco-900 flex items-center gap-2">
+                <span>🗺️</span> Tree Authority Officers — Ward-wise
+              </h3>
+              <a
+                href="https://www.pmc.gov.in/en/tree-authority-officers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-eco-600 hover:text-eco-800 hover:underline transition-colors"
+              >
+                Source: PMC Portal →
+              </a>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="bg-[#8B1A2B] text-white text-left">
+                    <th className="px-3 py-2.5 font-semibold whitespace-nowrap">Zone</th>
+                    <th className="px-3 py-2.5 font-semibold">Ward Name</th>
+                    <th className="px-3 py-2.5 font-semibold">Tree Officer</th>
+                    <th className="px-3 py-2.5 font-semibold">Asst. Garden Superintendent</th>
+                    <th className="px-3 py-2.5 font-semibold">Horticulture In-charge</th>
+                    <th className="px-3 py-2.5 font-semibold">Authorized Tree Cutting Agency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      zone: 1, ward: 'Dhanakwadi-Sahakarnagar',
+                      officer: { name: 'Shri. Amol Chavan', email: 'amol.chavan@punecorporation.org', phone: '9922193323' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9922113010' },
+                      horticulture: { name: 'Shri. Sambhaji Katkar', phone: '' },
+                      agency: 'M/s. Shree Ganesh Enterprises\n9011506344 / 8975418167'
+                    },
+                    {
+                      zone: 1, ward: 'Nagar Road - Vadgaonsheri',
+                      officer: { name: 'Shri. Rajesh Kumar', email: 'rajesh.kumar@punecorporation.org', phone: '' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9922113010' },
+                      horticulture: { name: 'Shri. Anil Salve', phone: '8308901747' },
+                      agency: 'M/s. Rohani Enterprises\n8600424331 / 9960077770'
+                    },
+                    {
+                      zone: 1, ward: 'Ghole Road',
+                      officer: { name: 'Shri. Satish Sonawane Patil', email: '', phone: '8100996445' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9922113010' },
+                      horticulture: { name: 'Shri. Sambhaji', phone: '' },
+                      agency: 'M/s. Mahadev Enterprises\n9423129307 / 9921304945'
+                    },
+                    {
+                      zone: 1, ward: 'Aundh - Baner',
+                      officer: { name: 'Shri. Vikas Bhosale', email: 'aundh.garden@punecorporation.org', phone: '9689994700' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9922113010' },
+                      horticulture: { name: 'Smt. Sandhya', phone: '8308901181' },
+                      agency: 'M/s. Kite Enterprises\n8412084289 / 9403130601'
+                    },
+                    {
+                      zone: 2, ward: 'Karve Road',
+                      officer: { name: 'Smt. Suman Jadhav', email: 'suman.jadhav@punecorporation.org', phone: '9689647110' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '8806681800' },
+                      horticulture: { name: 'Shri. Devidas Mote', phone: '' },
+                      agency: 'M/s. Gayatri Enterprises\n7218826300 / 9665014427'
+                    },
+                    {
+                      zone: 2, ward: 'Shivaji Nagar - Ghole Road (West)',
+                      officer: { name: 'Shri. Hanumant Wadhe', email: 'shivajinagar.garden@punecorporation.org', phone: '9689647198' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '8806681800' },
+                      horticulture: { name: '', phone: '' },
+                      agency: 'M/s. Saraswati Enterprises\n8805946452 / 9011340437'
+                    },
+                    {
+                      zone: 3, ward: 'Hadapsar - Mundhwa',
+                      officer: { name: 'Shri. Vijaykumar Raghuvanshi', email: 'hadapsar.garden@punecorporation.org', phone: '9922193035' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '8806681800' },
+                      horticulture: { name: 'Shri. Manoj Wable', phone: '' },
+                      agency: 'M/s. Atal Enterprises\n8805946452 / 9011907770'
+                    },
+                    {
+                      zone: 3, ward: 'Dhanakwadi - Sahakar Nagar',
+                      officer: { name: 'Shri. Sureshbahurao', email: '', phone: '9764102437' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '7703075213' },
+                      horticulture: { name: 'Shri. Ganesh', phone: '' },
+                      agency: 'M/s. Mahadev Namdev Enterprises\n9764964421 / 8831052100'
+                    },
+                    {
+                      zone: 4, ward: 'Wanawadi-Ramtekdi',
+                      officer: { name: 'Shri. Amol Patil', email: 'amol.patil@punecorporation.org', phone: '9689880310' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '' },
+                      horticulture: { name: '', phone: '' },
+                      agency: 'M/s. Shri Ganesh Shrirya\n8308901138 / 7799139855'
+                    },
+                    {
+                      zone: 4, ward: 'Kondhwa - Yewalewadi',
+                      officer: { name: 'Shri. Chandan Patil', email: 'kondhwa.garden@punecorporation.org', phone: '9860847978' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '' },
+                      horticulture: { name: '', phone: '' },
+                      agency: 'M/s. Chiranjeevi Enterprises\n9860496971 / 7798139676'
+                    },
+                    {
+                      zone: 5, ward: 'Kasba - Vishrambaug',
+                      officer: { name: 'Shri. Anil Bhalerao', email: '', phone: '9922193323' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '' },
+                      horticulture: { name: 'Shri. Eknath', phone: '' },
+                      agency: 'M/s. Mahammed Ali Entreprises\n8308901170 / 9595015446'
+                    },
+                    {
+                      zone: 5, ward: 'Bibwewadi',
+                      officer: { name: 'Smt. Anita Jagtap', email: '', phone: '' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '' },
+                      horticulture: { name: '', phone: '' },
+                      agency: 'M/s. Global Enterprises\n9421224011 / 7030575468'
+                    },
+                    {
+                      zone: 6, ward: 'Warje - Karvenagar',
+                      officer: { name: 'Smt. Preetika Ranka', email: 'warje.garden@punecorporation.org', phone: '' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '' },
+                      horticulture: { name: '', phone: '' },
+                      agency: ''
+                    },
+                    {
+                      zone: 6, ward: 'Kothrud',
+                      officer: { name: 'Smt. Vaishali Mohite', email: '', phone: '9423200287' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9921131010' },
+                      horticulture: { name: '', phone: '' },
+                      agency: 'M/s. Mauli Enterprises\n9923254960'
+                    },
+                    {
+                      zone: 7, ward: 'Bhawani Peth',
+                      officer: { name: 'Shri. Tanaji Jadhav', email: '', phone: '' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9823508414' },
+                      horticulture: { name: '', phone: '' },
+                      agency: ''
+                    },
+                    {
+                      zone: 7, ward: 'Yerawada',
+                      officer: { name: 'Smt. Deepika Wende', email: '', phone: '9423200287' },
+                      superintendent: { name: 'Shri. Natthurao Kamble', phone: '9921131010' },
+                      horticulture: { name: 'Shri. Vilas N.', phone: '9923254960' },
+                      agency: ''
+                    },
+                  ].map((row, i) => (
+                    <tr key={i} className={`border-b border-eco-100 hover:bg-eco-50/80 transition-colors ${i % 2 === 1 ? 'bg-gray-50/50' : ''}`}>
+                      <td className="px-3 py-2.5 font-bold text-eco-700 text-center">{row.zone}</td>
+                      <td className="px-3 py-2.5 font-semibold text-eco-900 whitespace-nowrap">{row.ward}</td>
+                      <td className="px-3 py-2.5">
+                        <p className="font-medium text-eco-900">{row.officer.name}</p>
+                        {row.officer.email && (
+                          <a href={`mailto:${row.officer.email}`} className="text-eco-600 hover:underline block truncate max-w-[180px]">✉️ {row.officer.email}</a>
+                        )}
+                        {row.officer.phone && (
+                          <a href={`tel:${row.officer.phone}`} className="text-[#8B1A2B] font-mono hover:underline">📞 {row.officer.phone}</a>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <p className="font-medium text-gray-800">{row.superintendent.name}</p>
+                        {row.superintendent.phone && (
+                          <a href={`tel:${row.superintendent.phone}`} className="text-[#8B1A2B] font-mono hover:underline">📞 {row.superintendent.phone}</a>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {row.horticulture.name ? (
+                          <>
+                            <p className="font-medium text-gray-800">{row.horticulture.name}</p>
+                            {row.horticulture.phone && (
+                              <a href={`tel:${row.horticulture.phone}`} className="text-[#8B1A2B] font-mono hover:underline">📞 {row.horticulture.phone}</a>
+                            )}
+                          </>
+                        ) : (
+                          <span className="text-gray-400">—</span>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {row.agency ? (
+                          <p className="text-gray-700 whitespace-pre-line leading-relaxed">{row.agency}</p>
+                        ) : (
+                          <span className="text-gray-400">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Member Secretary info */}
+          <div className="glass-card p-5 border-l-4 border-l-[#8B1A2B]">
+            <h4 className="font-bold text-eco-900 text-sm mb-2 flex items-center gap-2">
+              <span>📋</span> Member Secretary, Tree Authority Office
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="bg-eco-50 rounded-lg p-3">
+                <p className="font-semibold text-eco-900">Shri. Hanumant Yemmede</p>
+                <p className="text-gray-500 mt-0.5">Member Secretary, Tree Authority Office</p>
+                <a href="tel:9423200778" className="text-[#8B1A2B] font-mono font-semibold hover:underline block mt-1">📞 9423200778</a>
+              </div>
+              <div className="bg-eco-50 rounded-lg p-3">
+                <p className="font-semibold text-eco-900">Shri. Vikas Madhukarrao</p>
+                <p className="text-gray-500 mt-0.5">Junior Clerk</p>
+                <a href="tel:9604007840" className="text-[#8B1A2B] font-mono font-semibold hover:underline block mt-1">📞 9604007840</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Toll-free note */}
+          <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800 flex items-start gap-2">
+            <span className="font-bold shrink-0">📞</span>
+            <div>
+              <p><strong>PMC Toll-Free Helpline:</strong> <a href="tel:18001030222" className="font-mono font-bold hover:underline">1800-103-0222</a></p>
+              <p className="mt-1">For tree-related complaints, permissions, and objections, contact the Tree Authority office at your ward or call the toll-free number above.</p>
+            </div>
           </div>
         </div>
       )}
@@ -399,22 +720,21 @@ export default function OfficialResources() {
           {/* Category filter pills */}
           <div className="flex flex-wrap gap-2 mb-6">
             {[
-              { id: 'all',         label: 'All', icon: '📋' },
-              { id: 'tree',        label: 'Tree Protection', icon: '🌳' },
-              { id: 'wildlife',    label: 'Wildlife', icon: '🐆' },
+              { id: 'all', label: 'All', icon: '📋' },
+              { id: 'tree', label: 'Tree Protection', icon: '🌳' },
+              { id: 'wildlife', label: 'Wildlife', icon: '🐆' },
               { id: 'environment', label: 'Environment', icon: '♻️' },
             ].map(f => (
               <button
                 key={f.id}
                 onClick={() => setCatFilter(f.id)}
-                className={`flex items-center gap-2 text-sm px-4 py-2 rounded-xl font-semibold transition-all ${
-                  catFilter === f.id
-                    ? f.id === 'tree'        ? 'bg-green-600 text-white shadow-sm'
-                    : f.id === 'wildlife'    ? 'bg-orange-600 text-white shadow-sm'
-                    : f.id === 'environment' ? 'bg-blue-600 text-white shadow-sm'
-                    : 'bg-eco-600 text-white shadow-sm'
+                className={`flex items-center gap-2 text-sm px-4 py-2 rounded-xl font-semibold transition-all ${catFilter === f.id
+                    ? f.id === 'tree' ? 'bg-green-600 text-white shadow-sm'
+                      : f.id === 'wildlife' ? 'bg-orange-600 text-white shadow-sm'
+                        : f.id === 'environment' ? 'bg-blue-600 text-white shadow-sm'
+                          : 'bg-eco-600 text-white shadow-sm'
                     : 'bg-eco-50 text-eco-700 hover:bg-eco-100 border border-eco-200'
-                }`}
+                  }`}
               >
                 {f.icon} {f.label}
               </button>
@@ -424,9 +744,9 @@ export default function OfficialResources() {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-3 mb-6">
             {[
-              { cat: 'tree',        icon: '🌳', label: 'Tree Laws',     color: 'text-green-600' },
-              { cat: 'wildlife',    icon: '🐆', label: 'Wildlife Laws', color: 'text-orange-600' },
-              { cat: 'environment', icon: '♻️', label: 'Env. Laws',    color: 'text-blue-600' },
+              { cat: 'tree', icon: '🌳', label: 'Tree Laws', color: 'text-green-600' },
+              { cat: 'wildlife', icon: '🐆', label: 'Wildlife Laws', color: 'text-orange-600' },
+              { cat: 'environment', icon: '♻️', label: 'Env. Laws', color: 'text-blue-600' },
             ].map(s => (
               <div key={s.cat} className="stat-card text-center">
                 <span className="text-2xl">{s.icon}</span>
