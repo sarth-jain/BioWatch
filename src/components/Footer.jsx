@@ -55,7 +55,7 @@ export default function Footer() {
                         <h3 className="text-white font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2 text-sm text-eco-300">
                             <li>📍 Pune, Maharashtra</li>
-                            <li>📧 contact@biowatch.in</li>
+                            <li>📧 sarthjain.04@gmail.com</li>
                             <li>📞 +91 8007968524</li>
                         </ul>
                         <div className="flex gap-3 mt-4">
